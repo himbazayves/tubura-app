@@ -1,0 +1,146 @@
+{
+    "name":"User",
+    "namespace":"App\\Models",
+    "complete_name":"App\\Models\\User",
+    "table":{
+        "name":"users",
+        "colums":[
+                    { "name":"id", "type":"BigInt", "length":"", "nullable":"", "autoincrement":"1", "default":"" },
+                                { "name":"name", "type":"String", "length":"255", "nullable":"", "autoincrement":"", "default":"" },
+                                { "name":"surname", "type":"String", "length":"255", "nullable":"1", "autoincrement":"", "default":"" },
+                                { "name":"phone_number", "type":"String", "length":"255", "nullable":"1", "autoincrement":"", "default":"" },
+                                { "name":"cell_id", "type":"Integer", "length":"", "nullable":"1", "autoincrement":"", "default":"" },
+                                { "name":"is_admin", "type":"Boolean", "length":"", "nullable":"", "autoincrement":"", "default":"0" },
+                                { "name":"email", "type":"String", "length":"255", "nullable":"", "autoincrement":"", "default":"" },
+                                { "name":"email_verified_at", "type":"DateTime", "length":"0", "nullable":"1", "autoincrement":"", "default":"" },
+                                { "name":"password", "type":"String", "length":"255", "nullable":"", "autoincrement":"", "default":"" },
+                                { "name":"two_factor_secret", "type":"Text", "length":"65535", "nullable":"1", "autoincrement":"", "default":"" },
+                                { "name":"two_factor_recovery_codes", "type":"Text", "length":"65535", "nullable":"1", "autoincrement":"", "default":"" },
+                                { "name":"remember_token", "type":"String", "length":"100", "nullable":"1", "autoincrement":"", "default":"" },
+                                { "name":"current_team_id", "type":"BigInt", "length":"", "nullable":"1", "autoincrement":"", "default":"" },
+                                { "name":"profile_photo_path", "type":"Text", "length":"65535", "nullable":"1", "autoincrement":"", "default":"" },
+                                { "name":"created_at", "type":"DateTime", "length":"0", "nullable":"1", "autoincrement":"", "default":"" },
+                                { "name":"updated_at", "type":"DateTime", "length":"0", "nullable":"1", "autoincrement":"", "default":"" }                ]
+    },
+    "relations": [
+                {
+            "name":"tokens",
+            "type":"MorphMany",
+            "local_key" : "id",
+            "foreign_key": "tokenable_id",
+            "model": {
+                "name":"PersonalAccessToken",
+                "table":{
+                    "name":"personal_access_tokens",
+                    "colums": [
+                                { "name":"id", "type":"BigInt", "length":"", "nullable":"", "autoincrement":"1", "default":"" }  ,
+                                                { "name":"name", "type":"String", "length":"255", "nullable":"", "autoincrement":"", "default":"" }  ,
+                                                { "name":"surname", "type":"String", "length":"255", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"phone_number", "type":"String", "length":"255", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"cell_id", "type":"Integer", "length":"", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"is_admin", "type":"Boolean", "length":"", "nullable":"", "autoincrement":"", "default":"0" }  ,
+                                                { "name":"email", "type":"String", "length":"255", "nullable":"", "autoincrement":"", "default":"" }  ,
+                                                { "name":"email_verified_at", "type":"DateTime", "length":"0", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"password", "type":"String", "length":"255", "nullable":"", "autoincrement":"", "default":"" }  ,
+                                                { "name":"two_factor_secret", "type":"Text", "length":"65535", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"two_factor_recovery_codes", "type":"Text", "length":"65535", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"remember_token", "type":"String", "length":"100", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"current_team_id", "type":"BigInt", "length":"", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"profile_photo_path", "type":"Text", "length":"65535", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"created_at", "type":"DateTime", "length":"0", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"updated_at", "type":"DateTime", "length":"0", "nullable":"1", "autoincrement":"", "default":"" }                             ]
+                }
+            }
+        } ,
+                
+                {
+            "name":"currentTeam",
+            "type":"BelongsTo",
+            "local_key" : "current_team_id",
+            "foreign_key": "id",
+            "model": {
+                "name":"Team",
+                "table":{
+                    "name":"teams",
+                    "colums": [
+                                { "name":"id", "type":"BigInt", "length":"", "nullable":"", "autoincrement":"1", "default":"" }  ,
+                                                { "name":"name", "type":"String", "length":"255", "nullable":"", "autoincrement":"", "default":"" }  ,
+                                                { "name":"surname", "type":"String", "length":"255", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"phone_number", "type":"String", "length":"255", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"cell_id", "type":"Integer", "length":"", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"is_admin", "type":"Boolean", "length":"", "nullable":"", "autoincrement":"", "default":"0" }  ,
+                                                { "name":"email", "type":"String", "length":"255", "nullable":"", "autoincrement":"", "default":"" }  ,
+                                                { "name":"email_verified_at", "type":"DateTime", "length":"0", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"password", "type":"String", "length":"255", "nullable":"", "autoincrement":"", "default":"" }  ,
+                                                { "name":"two_factor_secret", "type":"Text", "length":"65535", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"two_factor_recovery_codes", "type":"Text", "length":"65535", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"remember_token", "type":"String", "length":"100", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"current_team_id", "type":"BigInt", "length":"", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"profile_photo_path", "type":"Text", "length":"65535", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"created_at", "type":"DateTime", "length":"0", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"updated_at", "type":"DateTime", "length":"0", "nullable":"1", "autoincrement":"", "default":"" }                             ]
+                }
+            }
+        } ,
+                
+                {
+            "name":"ownedTeams",
+            "type":"HasMany",
+            "local_key" : "id",
+            "foreign_key": "user_id",
+            "model": {
+                "name":"Team",
+                "table":{
+                    "name":"teams",
+                    "colums": [
+                                { "name":"id", "type":"BigInt", "length":"", "nullable":"", "autoincrement":"1", "default":"" }  ,
+                                                { "name":"name", "type":"String", "length":"255", "nullable":"", "autoincrement":"", "default":"" }  ,
+                                                { "name":"surname", "type":"String", "length":"255", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"phone_number", "type":"String", "length":"255", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"cell_id", "type":"Integer", "length":"", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"is_admin", "type":"Boolean", "length":"", "nullable":"", "autoincrement":"", "default":"0" }  ,
+                                                { "name":"email", "type":"String", "length":"255", "nullable":"", "autoincrement":"", "default":"" }  ,
+                                                { "name":"email_verified_at", "type":"DateTime", "length":"0", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"password", "type":"String", "length":"255", "nullable":"", "autoincrement":"", "default":"" }  ,
+                                                { "name":"two_factor_secret", "type":"Text", "length":"65535", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"two_factor_recovery_codes", "type":"Text", "length":"65535", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"remember_token", "type":"String", "length":"100", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"current_team_id", "type":"BigInt", "length":"", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"profile_photo_path", "type":"Text", "length":"65535", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"created_at", "type":"DateTime", "length":"0", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"updated_at", "type":"DateTime", "length":"0", "nullable":"1", "autoincrement":"", "default":"" }                             ]
+                }
+            }
+        } ,
+                
+                {
+            "name":"teams",
+            "type":"BelongsToMany",
+            "local_key" : "",
+            "foreign_key": "",
+            "model": {
+                "name":"Team",
+                "table":{
+                    "name":"teams",
+                    "colums": [
+                                { "name":"id", "type":"BigInt", "length":"", "nullable":"", "autoincrement":"1", "default":"" }  ,
+                                                { "name":"name", "type":"String", "length":"255", "nullable":"", "autoincrement":"", "default":"" }  ,
+                                                { "name":"surname", "type":"String", "length":"255", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"phone_number", "type":"String", "length":"255", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"cell_id", "type":"Integer", "length":"", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"is_admin", "type":"Boolean", "length":"", "nullable":"", "autoincrement":"", "default":"0" }  ,
+                                                { "name":"email", "type":"String", "length":"255", "nullable":"", "autoincrement":"", "default":"" }  ,
+                                                { "name":"email_verified_at", "type":"DateTime", "length":"0", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"password", "type":"String", "length":"255", "nullable":"", "autoincrement":"", "default":"" }  ,
+                                                { "name":"two_factor_secret", "type":"Text", "length":"65535", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"two_factor_recovery_codes", "type":"Text", "length":"65535", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"remember_token", "type":"String", "length":"100", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"current_team_id", "type":"BigInt", "length":"", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"profile_photo_path", "type":"Text", "length":"65535", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"created_at", "type":"DateTime", "length":"0", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"updated_at", "type":"DateTime", "length":"0", "nullable":"1", "autoincrement":"", "default":"" }                             ]
+                }
+            }
+        }
+            ]
+}

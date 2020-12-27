@@ -1,0 +1,32 @@
+{
+    "name":"Year",
+    "namespace":"App\\Models",
+    "complete_name":"App\\Models\\Year",
+    "table":{
+        "name":"years",
+        "colums":[
+                    { "name":"id", "type":"BigInt", "length":"", "nullable":"", "autoincrement":"1", "default":"" },
+                                { "name":"name", "type":"String", "length":"255", "nullable":"", "autoincrement":"", "default":"" },
+                                { "name":"created_at", "type":"DateTime", "length":"0", "nullable":"1", "autoincrement":"", "default":"" },
+                                { "name":"updated_at", "type":"DateTime", "length":"0", "nullable":"1", "autoincrement":"", "default":"" }                ]
+    },
+    "relations": [
+                {
+            "name":"seasons",
+            "type":"HasMany",
+            "local_key" : "id",
+            "foreign_key": "year_id",
+            "model": {
+                "name":"Season",
+                "table":{
+                    "name":"seasons",
+                    "colums": [
+                                { "name":"id", "type":"BigInt", "length":"", "nullable":"", "autoincrement":"1", "default":"" }  ,
+                                                { "name":"name", "type":"String", "length":"255", "nullable":"", "autoincrement":"", "default":"" }  ,
+                                                { "name":"created_at", "type":"DateTime", "length":"0", "nullable":"1", "autoincrement":"", "default":"" }  ,
+                                                { "name":"updated_at", "type":"DateTime", "length":"0", "nullable":"1", "autoincrement":"", "default":"" }                             ]
+                }
+            }
+        }
+            ]
+}
