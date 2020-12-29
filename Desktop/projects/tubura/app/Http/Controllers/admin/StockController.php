@@ -30,8 +30,26 @@ class StockController extends Controller
     public function store(StockPostRequest $request)
     {
         $data = $request->validated();
-        $stock = Stock::create($data);
-        return redirect()->route('stocks.index')->with('status', 'Stock created!');
+
+
+        $checkStock=Stock::where('season_id', $data['season_id'])
+        ->where('seed_id', $data['seed_id'] )
+        ->orWhere('fertilizer_id', $data['fertilizer_id'])->count();
+        if($checkStock>0){
+
+            echo "exist";
+        }
+
+        else{
+
+            echo "lyes";
+        }
+
+        //foreach($stocks as $sctock)
+
+        //var_dump($data);
+       //$stock = Stock::create($data);
+       //return redirect()->route('stocks.index')->with('status', 'Stock created!');
     }
 
     public function edit(Request $request, Stock $stock)
