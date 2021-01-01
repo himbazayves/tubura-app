@@ -79,29 +79,7 @@
 </div>
         
 
-                    <div class="form-group row">
-        <label class="col-sm-12 col-md-2 col-form-label" for="start">Start</label>
-        <div class="col-sm-12 col-md-10">
-                <input class="form-control String"  type="text"  name="start" id="start" value="{{old('start',$season->start)}}"
-                        required="required"
-                >
-            @if($errors->has('start'))
-        <span class="invalid-feedback" role="alert"><strong>{{$errors->first('start')}}</strong></span>
-        @endif
-    </div>
-</div>
-                                <div class="form-group row">
-        <label class="col-sm-12 col-md-2 col-form-label" for="end">End</label>
-        <div class="col-sm-12 col-md-10">
-                <input class="form-control String"  type="text"  name="end" id="end" value="{{old('end',$season->end)}}"
-                        required="required"
-                >
-            @if($errors->has('end'))
-        <span class="invalid-feedback" role="alert"><strong>{{$errors->first('end')}}</strong></span>
-        @endif
-    </div>
-</div>
-                        
+                                            
   
 
 

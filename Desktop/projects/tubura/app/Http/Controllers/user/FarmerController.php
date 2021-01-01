@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\admin\farmer;
+namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use App\Models\Farmer;
 use App\Models\Cell;
-
+use Auth;
 use Illuminate\Http\Request;
 
 class FarmerController extends Controller
@@ -17,7 +17,7 @@ class FarmerController extends Controller
     public function index()
     {
         $farmers= Farmer::all();
-        return view('admin.farmer.index',['farmers'=>$farmers]);
+        return view('user.farmer.index',['farmers'=>$farmers]);
     }
 
     /**
@@ -29,7 +29,7 @@ class FarmerController extends Controller
     {
 
         $cells= Cell::all();
-        return view('admin.farmer.create',['cells'=>$cells]);
+        return view('user.farmer.create',['cells'=>$cells]);
     }
 
     /**
@@ -46,10 +46,11 @@ class FarmerController extends Controller
            
         'name'=>'required',
         'surname'=>'required',
-        'phone_number'=>'required|max:3|min:3',
-        'phone_number'=>'required|max:3|min:3',
-        'cell_id'=>'required',
-        'NID'=>'required|unique:farmers',
+        'phone_number'=>'required|max:10|min:10|unique:farmers',
+       
+        
+        'NID'=>'required|unique:farmers|min:16|max:16',
+        'land_size'=>'required',
            
            
            
@@ -59,7 +60,7 @@ class FarmerController extends Controller
         $name=$request->input('name');
         $surname=$request->input('surname');
         $NID=$request->NID;
-        $cell_id=$request->cell_id;
+        $cell_id=Auth::user()->cell_id;
         $phone_number=$request->phone_number;
         $land_size=$request->land_size;
         
@@ -91,7 +92,7 @@ class FarmerController extends Controller
     {
         $farmer= Farmer::find($id);
        
-        return view('admin.farmer.show',['farmer'=>$farmer]);
+        return view('user.farmer.show',['farmer'=>$farmer]);
     }
 
     /**
@@ -106,7 +107,7 @@ class FarmerController extends Controller
         
         $farmer= Farmer::find($id);
         $cells= Cell::all();
-        return view('admin.farmer.edit',['farmer'=>$farmer,'cells'=>$cells]);
+        return view('user.farmer.edit',['farmer'=>$farmer,'cells'=>$cells]);
     }
 
     /**
@@ -122,11 +123,11 @@ class FarmerController extends Controller
            
             'name'=>'required',
             'surname'=>'required',
-            'phone_number'=>'required|max:3|min:3',
-            'phone_number'=>'required|max:3|min:3',
-            'cell_id'=>'required',
-            'NID'=>'required',
-               
+            'phone_number'=>'required|max:10|min:10',
+          
+            
+            'NID'=>'required|max:16|min:16',
+              'land_size'=>'required' 
                
                
                
@@ -146,7 +147,7 @@ class FarmerController extends Controller
             $name=$request->input('name');
             $surname=$request->input('surname');
             $NID=$request->NID;
-            $cell_id=$request->cell_id;
+            $cell_id=Auth::user()->cell_id;
             $phone_number=$request->phone_number;
             $land_size=$request->land_size;
             

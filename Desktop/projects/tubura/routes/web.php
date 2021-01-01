@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified','checkProfile'])->get('/dashboard', function () {
 
     
 if(Auth::user()->is_admin){
@@ -30,7 +30,7 @@ else
 
 {
 
-    echo "normal user";
+    return view('user.home');
 }
     
 
@@ -41,19 +41,10 @@ else
 
 ///farmers routes
 
-//Route::get('/farmers', [App\Http\Controllers\admin\farmer\FarmerController::class, 'index'] )->name('farmers.index');
 
-///Route::get('/farmers/create', [App\Http\Controllers\admin\farmer\FarmerController::class, 'create']  )->name('farmers.create');
 
-//Route::post('/farmers/store', [App\Http\Controllers\admin\farmer\FarmerController::class, 'store'] )->name('farmers.store');
 
-//Route::get('/farmers/edit/{id}', [App\Http\Controllers\admin\farmer\FarmerController::class, 'edit'] )->name('farmers.edit');
-
-////Route::post('/farmers/update/{id}', [App\Http\Controllers\admin\farmer\FarmerController::class, 'update'] )->name('farmers.update');
-////Route::post('/farmers/show/{id}', [App\Http\Controllers\admin\farmer\FarmerController::class, 'show'] )->name('farmers.show');
-//Route::post('/farmers/destroy/{id}', [App\Http\Controllers\admin\farmer\FarmerController::class, 'destroy'] )->name('farmers.destroy');
-
-Route::resource('farmers', App\Http\Controllers\admin\farmer\FarmerController::class);
+// Admin routes
 Route::resource('users', App\Http\Controllers\admin\UserController::class);
 
 Route::resource('years', App\Http\Controllers\admin\YearController::class);
@@ -64,6 +55,22 @@ Route::resource('fertilizers', App\Http\Controllers\admin\FertilizerController::
 Route::resource('stocks', App\Http\Controllers\admin\StockController::class);
 //Route::resource('seeds', App\Http\Controllers\SeedController::class);
 
+
+//end amnin routes
+
+
+//user routes
+
+
+Route::get('/user/complite_profile', [App\Http\Controllers\user\CompliteProfileController::class, 'index'] )->name('complite_profile.index');
+Route::post('/user/complite', [App\Http\Controllers\user\CompliteProfileController::class, 'complite'] )->name('complite_profile.complite');
+Route::resource('farmers', App\Http\Controllers\user\FarmerController::class);
+Route::resource('seed-requests', App\Http\Controllers\SeedRequestController::class);
+Route::resource('fertilizer-requests', App\Http\Controllers\FertilizerRequestController::class);
+
+
+
+//end user routes
 
 
 

@@ -42,17 +42,14 @@
     <thead>
         <tr>
                         
-                                    <th>Start</th>
-            
                         
                         
-                                    <th>End</th>
-            
                         
                         
                      
           
-            
+            <td> Season Type</td>
+            <td>Year</td>
            <td>Action</td>
             
             
@@ -64,11 +61,10 @@
 
     @forelse($seasons as $season)
     <tr>
-                    <td>{{$season->start}}</td>
-                                <td>{{$season->end}}</td>
-                        
+                                            
 
-
+      <td> {{$season->season_type->name}}</td>
+      <td> {{$season->year->name}}</td>
     
     <td>
         <div class="dropdown">

@@ -33,9 +33,17 @@
     <div class="card-body">
                                         <div class="form-group">
             <label class="col-form-label" for="value">Name</label>
-            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$season_type->name}}">
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$seasonType->name}}">
         </div>
-                                                    </div>
+                                                                <div class="form-group">
+            <label class="col-form-label" for="value">Start</label>
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$seasonType->start}}">
+        </div>
+                                <div class="form-group">
+            <label class="col-form-label" for="value">End</label>
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$seasonType->end}}">
+        </div>
+                    </div>
 
     </div>
 
@@ -53,12 +61,10 @@
                 <thead>
                     <tr>
                         <th>&nbsp;</th>
-                                                                                                                        <th> Start</th>
-                                                                                                                                                                                                <th> End</th>
-                                                                                                                                                                    </tr>
+                                                                                                                                                                                                                                                                                            </tr>
                 </thead>
                 <tbody>
-                    @foreach($season_type->seasons as $season)
+                    @foreach($seasonType->seasons as $season)
                     <tr>
                         <td>
                         <a href="{{route('seasons.show',['season'=>$season] )}}">Show</a>
@@ -72,9 +78,7 @@
                             @method('DELETE')
                         </form>
                         </td>
-                                                                                                                        <td> {{ $season->start}}</td>
-                                                                                                                                                                                                <td> {{ $season->end}}</td>
-                                                                                                                                                                    </tr>
+                                                                                                                                                                                                                                                                                            </tr>
 
                     @endforeach
                 </tbody>

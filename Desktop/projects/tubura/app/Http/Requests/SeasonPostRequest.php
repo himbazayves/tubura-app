@@ -24,16 +24,10 @@ class SeasonPostRequest extends FormRequest
     public function rules()
     {
         return [
-            'start' => [
-                'required',
-            ],
             'year_id' => [
                 'required',
             ],
             'season_type_id' => [
-                'required',
-            ],
-            'end' => [
                 'required',
             ],
         ];

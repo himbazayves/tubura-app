@@ -49,25 +49,20 @@
                                     <th>Name</th>
             
                                     <th>Surname</th>
+                                    <td>Cell</td>
             
                                     <th>Phone Number</th>
             
                         
-                                    <th>Is Admin</th>
+                                    
             
                                     <th>Email</th>
             
                         
-                                    <th>Password</th>
-            
-                                    <th>Two Factor Secret</th>
-            
-                                    <th>Two Factor Recovery Codes</th>
-            
-                                    <th>Remember Token</th>
+                                    
             
                         
-                                    <th>Profile Photo Path</th>
+                                    
             
                         
                         
@@ -87,14 +82,12 @@
     <tr>
                     <td>{{$user->name}}</td>
                 <td>{{$user->surname}}</td>
+                <td>Cell</td>
                 <td>{{$user->phone_number}}</td>
-                        <td>{{$user->is_admin}}</td>
+                        
                 <td>{{$user->email}}</td>
-                        <td>{{$user->password}}</td>
-                <td>{{$user->two_factor_secret}}</td>
-                <td>{{$user->two_factor_recovery_codes}}</td>
-                <td>{{$user->remember_token}}</td>
-                        <td>{{$user->profile_photo_path}}</td>
+                      
+               
                         
 
 

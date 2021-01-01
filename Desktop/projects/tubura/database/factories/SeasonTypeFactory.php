@@ -10,6 +10,8 @@ use App\Models\Season;
 $factory->define(SeasonType::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
+        'start' => $faker->text,
+        'end' => $faker->text,
         //seasons HasMany Season id
     ];
 });

@@ -46,6 +46,10 @@
             
                         
                         
+                                    <th>Start</th>
+            
+                                    <th>End</th>
+            
                      
           
             
@@ -61,7 +65,9 @@
     @forelse($season_types as $season_type)
     <tr>
                     <td>{{$season_type->name}}</td>
-                        
+                                <td>{{$season_type->start}}</td>
+                <td>{{$season_type->end}}</td>
+        
 
 
     

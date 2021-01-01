@@ -81,7 +81,7 @@
             </div>
             </div>
 
-            <div class="form-group row">
+        <!--    <div class="form-group row">
                 <label class="col-sm-12 col-md-2 col-form-label">Cell</label>
                 <div class="col-sm-12 col-md-10">
                    <select class="js-example-basic-single form-control" style="width:100%" name="cell_id">
@@ -99,7 +99,7 @@
                    </span>
                     @enderror
                 </div>
-             </div>
+             </div>-->
 
             <div class="form-group row">
                 <label class="col-sm-12 col-md-2 col-form-label">Land size (in Hectare)</label>

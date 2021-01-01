@@ -27,6 +27,12 @@ class SeasonTypePostRequest extends FormRequest
             'name' => [
                 'required',
             ],
+            'start' => [
+                'required',
+            ],
+            'end' => [
+                'required',
+            ],
         ];
     }
 }

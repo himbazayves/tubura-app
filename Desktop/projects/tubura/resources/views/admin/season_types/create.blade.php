@@ -40,7 +40,31 @@
                  @endif
              </div>
             </div>
-                                                                              
+                                                                                                        <div class="form-group row">
+
+                 <label class="col-sm-12 col-md-2 col-form-label" for="start">Start</label>
+                 <div class="col-sm-12 col-md-10">
+                                  <input  class="form-control  @error('start') is-invalid @enderror  String"  type="text"  name="start" id="start" value="{{old('start')}}"                  maxlength="255"
+                                                   required="required"
+                                  >
+                                  @if($errors->has('start'))
+                 <p class="text-danger">{{$errors->first('start')}}</p>
+                 @endif
+             </div>
+            </div>
+                                                    <div class="form-group row">
+
+                 <label class="col-sm-12 col-md-2 col-form-label" for="end">End</label>
+                 <div class="col-sm-12 col-md-10">
+                                  <input  class="form-control  @error('end') is-invalid @enderror  String"  type="text"  name="end" id="end" value="{{old('end')}}"                  maxlength="255"
+                                                   required="required"
+                                  >
+                                  @if($errors->has('end'))
+                 <p class="text-danger">{{$errors->first('end')}}</p>
+                 @endif
+             </div>
+            </div>
+                          
 
 
       

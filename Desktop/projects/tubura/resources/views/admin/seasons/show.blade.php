@@ -20,7 +20,6 @@
         <li class="breadcrumb-item active" aria-current="page">Season</li>
     </ol>
 </nav>
-@endsection
 
 @section('content')
 <div class="container">
@@ -28,19 +27,11 @@
     <div class="card mb-4">
 
         <div class="card-header">
-            <h4> Season Show </h4>
+            <h1> Season Show </h1>
         </div>
 
     <div class="card-body">
-                                        <div class="form-group">
-            <label class="col-form-label" for="value">Start</label>
-            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$season->start}}">
-        </div>
-                                                                <div class="form-group">
-            <label class="col-form-label" for="value">End</label>
-            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$season->end}}">
-        </div>
-                                                    </div>
+                                                                                            </div>
 
     </div>
 

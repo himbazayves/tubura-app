@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class SeasonType extends Model
 {
     use HasFactory;
-    protected  $fillable=['name'];
+    protected  $fillable=['name','start', 'end'];
     public function seasons()
     {
         return $this->hasMany('App\Models\Season');

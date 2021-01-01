@@ -31,7 +31,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
-
+	@livewireStyles
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
 	<script>
@@ -135,6 +135,7 @@ textarea.form-control.is-invalid {
 }
 
 	</style>
+	
 </head>
 <body>
 	<div class="pre-loader">
@@ -145,7 +146,7 @@ textarea.form-control.is-invalid {
 			</div>
 			<div class='percent' id='percent1'>0%</div>
 			<div class="loading-text">
-				Loading...
+				Tubura app is Loading...
 			</div>
 		</div>
 	</div>
@@ -382,8 +383,8 @@ $(".alert").fadeTo(2000, 500).slideUp(500, function(){
 
 
 
-
-
+@livewireScripts
+@include('sweetalert::alert')
 
 
 </body>

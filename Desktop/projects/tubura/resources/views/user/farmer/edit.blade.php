@@ -105,31 +105,7 @@
                 </div>
                 </div>
     
-                <div class="form-group row">
-                    <label class="col-sm-12 col-md-2 col-form-label">Cell</label>
-                    <div class="col-sm-12 col-md-10">
-                       <select class="js-example-basic-single form-control" style="width:100%" name="cell_id">
-                         
-                       <option value="{{$farmer->cell->id}}"  selected>{{$farmer->cell->name}}</option>
-                         @foreach($cells as $key => $cell)
-
-                         @if($cell->id != $farmer->cell->id)
-                         <option value="{{$cell->id}}">{{$cell->name}}</option>
-                         @endif
-
-                      
-                         @endforeach
-                         
-                       
-                       </select>
-    
-                       @error('cell')
-                       <span class="invalid-feedback" role="alert">
-                           <strong>{{ $message }}</strong>
-                       </span>
-                        @enderror
-                    </div>
-                 </div>
+                
     
                 <div class="form-group row">
                     <label class="col-sm-12 col-md-2 col-form-label">Land size (in Hectare)</label>

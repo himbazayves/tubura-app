@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Season extends Model
 {
     use HasFactory;
-    protected  $fillable=['name', 'start', 'end'];
+    protected  $fillable=['season_type_id', 'year_id'];
     public function season_type()
     {
         return $this->belongsTo('App\Models\SeasonType');
