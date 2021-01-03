@@ -24,9 +24,6 @@ class FertilizerRequestPostRequest extends FormRequest
     public function rules()
     {
         return [
-            'season_id' => [
-                'required',
-            ],
             'farmer_id' => [
                 'required',
             ],
@@ -36,14 +33,10 @@ class FertilizerRequestPostRequest extends FormRequest
             'requested_amount' => [
                 'required',
             ],
-            'given_amount' => [
+           
+            
+            'fertilizer_application_id' => [
                 'required',
-            ],
-            'approved' => [
-                'present',
-            ],
-            'received' => [
-                'present',
             ],
         ];
     }

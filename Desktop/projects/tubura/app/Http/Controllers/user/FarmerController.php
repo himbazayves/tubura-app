@@ -6,6 +6,7 @@ use App\Models\Farmer;
 use App\Models\Cell;
 use Auth;
 use Illuminate\Http\Request;
+use Alert;
 
 class FarmerController extends Controller
 {
@@ -77,7 +78,7 @@ class FarmerController extends Controller
         $farmer->save();
         
 
-        return redirect()->route('farmers.index')->with('success','Farmer saved successfully');
+        return redirect()->route('farmers.index')->with('toast_success','Farmer saved successfully');
                                 
         
     }
@@ -166,7 +167,7 @@ class FarmerController extends Controller
         
             
     
-            return redirect()->route('farmers.index')->with('success','Farmer edited successfully');
+            return redirect()->route('farmers.index')->with('toast_success','Farmer edited successfully');
                                     
             
     }
@@ -184,7 +185,7 @@ class FarmerController extends Controller
        
        
         $farmer->delete();
-        return redirect()->back()->with('success','Farmer deleted successfully');
+        return redirect()->back()->with('toast_success','Farmer deleted successfully');
 
     }
 }

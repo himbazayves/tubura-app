@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\SeedRequestPostRequest;
 use App\Models\SeedRequest;
-Use Alert;
+use App\Models\SeedApplication;
 
 
 class SeedRequestController extends Controller
@@ -30,22 +30,29 @@ class SeedRequestController extends Controller
     public function store(SeedRequestPostRequest $request)
     {
         $data = $request->validated();
-        
         $check= SeedRequest::where('seed_id' , $data['seed_id'])
-                             ->where('season_id',$data['season_id'])
-                             ->where('farmer_id', $data['farmer_id'])
-        
-                             ->count();
-        if($check>0){
+        ->where('seed_application_id',$data['seed_application_id'])
+        ->where('farmer_id', $data['farmer_id'])
 
-            return redirect()->back()->with('toast_warning','We Arleady have that request');
-        }
+        ->count();
+if($check>0){
 
-      else  {
-
+return redirect()->back()->with('toast_warning','We Arleady have that request');
+}
+else{
+    
+    if(SeedApplication::where('id',$data['seed_application_id'])->first()->open)
+     {
         $seed_request = SeedRequest::create($data);
-        return redirect()->route('seed-requests.index')->with('toast_success', 'Seed request created!');
-        }
+        return redirect()->route('seed-requests.index')->with('status', 'SeedRequest created!');
+     }
+
+     else{
+
+        return redirect()->back()->with('toast_warning','Fertilizer application for this season is closed.'); 
+     }
+}
+    
     }
 
     public function edit(Request $request, SeedRequest $seed_request)

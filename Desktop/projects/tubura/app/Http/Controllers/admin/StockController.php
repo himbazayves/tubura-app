@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\StockPostRequest;
 use App\Models\Stock;
+use Alert;
 
 
 class StockController extends Controller

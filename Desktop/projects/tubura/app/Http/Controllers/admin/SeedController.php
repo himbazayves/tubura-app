@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\SeedPostRequest;
 use App\Models\Seed;
+use Alert;
 
 
 class SeedController extends Controller
@@ -31,7 +32,7 @@ class SeedController extends Controller
     {
         $data = $request->validated();
         $seed = Seed::create($data);
-        return redirect()->route('seeds.index')->with('status', 'Seed created!');
+        return redirect()->route('seeds.index')->with('toast_success', 'Seed created!');
     }
 
     public function edit(Request $request, Seed $seed)
@@ -44,12 +45,12 @@ class SeedController extends Controller
         $data = $request->validated();
         $seed->fill($data);
         $seed->save();
-        return redirect()->route('seeds.index')->with('status', 'Seed updated!');
+        return redirect()->route('seeds.index')->with('toast_success', 'Seed updated!');
     }
 
     public function destroy(Request $request, Seed $seed)
     {
         $seed->delete();
-        return redirect()->route('seeds.index')->with('status', 'Seed destroyed!');
+        return redirect()->route('seeds.index')->with('toast_success', 'Seed destroyed!');
     }
 }

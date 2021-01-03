@@ -26,12 +26,12 @@
    @csrf
   
                           <div class="form-group row">
-                 <label class="col-sm-12 col-md-2 col-form-label" for="season_id">Season</label>
+                 <label class="col-sm-12 col-md-2 col-form-label" for="fertilizer_requests_id">Season</label>
                  <div class="col-sm-12 col-md-10">
-                 <select class="js-example-basic-single form-control" style="width:100%" name="season_id" id="season_id">
-                     @foreach((\App\Models\Season::all() ?? [] ) as $season)
-                     <option value="{{$season->id}}">
-                         {{$season->}}</option>
+                 <select class="js-example-basic-single form-control" style="width:100%" name="fertilizer_application_id" id="fertilizer_requests_id">
+                     @foreach((\App\Models\FertilizerApplication::all() ?? [] ) as $application)
+                     <option value="{{$application->id}}">
+                         {{$application->season->year->name}} - {{$application->season->season_type->name}}</option>
                      @endforeach
                  </select>
              </div>
@@ -61,7 +61,7 @@
                           
 
 
-                                                                                                                                               <div class="form-group row">
+                                                                                                                     <div class="form-group row">
 
                  <label class="col-sm-12 col-md-2 col-form-label" for="requested_amount">Requested Amount</label>
                  <div class="col-sm-12 col-md-10">
@@ -73,39 +73,10 @@
                  @endif
              </div>
             </div>
-                                                    <div class="form-group row">
-
-                 <label class="col-sm-12 col-md-2 col-form-label" for="given_amount">Given Amount</label>
-                 <div class="col-sm-12 col-md-10">
-                                  <input  class="form-control  @error('given_amount') is-invalid @enderror  String"  type="text"  name="given_amount" id="given_amount" value="{{old('given_amount')}}"                  maxlength="255"
-                                                   required="required"
-                                  >
-                                  @if($errors->has('given_amount'))
-                 <p class="text-danger">{{$errors->first('given_amount')}}</p>
-                 @endif
-             </div>
-            </div>
-                                                    <div class="form-group row">
-
-                 <label class="col-sm-12 col-md-2 col-form-label" for="approved">Approved</label>
-                 <div class="col-sm-12 col-md-10">
-                                  <input  class="form-control  @error('approved') is-invalid @enderror  Boolean"  type="text"  name="approved" id="approved" value="{{old('approved')}}"                                   >
-                                  @if($errors->has('approved'))
-                 <p class="text-danger">{{$errors->first('approved')}}</p>
-                 @endif
-             </div>
-            </div>
-                                                    <div class="form-group row">
-
-                 <label class="col-sm-12 col-md-2 col-form-label" for="received">Received</label>
-                 <div class="col-sm-12 col-md-10">
-                                  <input  class="form-control  @error('received') is-invalid @enderror  Boolean"  type="text"  name="received" id="received" value="{{old('received')}}"                                   >
-                                  @if($errors->has('received'))
-                 <p class="text-danger">{{$errors->first('received')}}</p>
-                 @endif
-             </div>
-            </div>
-                                                                              
+                                                   
+                                                  
+                                                   
+                                                                                                        
 
 
       

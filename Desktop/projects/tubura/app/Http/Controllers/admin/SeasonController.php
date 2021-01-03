@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\SeasonPostRequest;
 use App\Models\Season;
+use Alert;
 
 
 class SeasonController extends Controller
@@ -30,7 +31,7 @@ class SeasonController extends Controller
     {
         $data = $request->validated();
         $season = Season::create($data);
-        return redirect()->route('seasons.index')->with('status', 'Season created!');
+        return redirect()->route('seasons.index')->with('toast_success', 'Season created!');
     }
 
     public function edit(Request $request, Season $season)
@@ -43,12 +44,12 @@ class SeasonController extends Controller
         $data = $request->validated();
         $season->fill($data);
         $season->save();
-        return redirect()->route('seasons.index')->with('status', 'Season updated!');
+        return redirect()->route('seasons.index')->with('toast_success', 'Season updated!');
     }
 
     public function destroy(Request $request, Season $season)
     {
         $season->delete();
-        return redirect()->route('seasons.index')->with('status', 'Season destroyed!');
+        return redirect()->route('seasons.index')->with('toast_success', 'Season destroyed!');
     }
 }

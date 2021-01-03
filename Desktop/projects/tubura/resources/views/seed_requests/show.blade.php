@@ -31,7 +31,7 @@
         </div>
 
     <div class="card-body">
-                                                                                        <div class="form-group">
+                                                                        <div class="form-group">
             <label class="col-form-label" for="value">Requested Amount</label>
             <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$seedRequest->requested_amount}}">
         </div>
@@ -47,7 +47,7 @@
             <label class="col-form-label" for="value">Received</label>
             <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$seedRequest->received}}">
         </div>
-                                                    </div>
+                                                                    </div>
 
     </div>
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Cell;
 use Auth;
 use App\models\User;
+use Alert;
 
 class CompliteProfileController extends Controller
 {
@@ -38,7 +39,7 @@ class CompliteProfileController extends Controller
       $user->phone_number=$request->phone_number;
       $user->cell_id=$request->cell;
       $user->save();
-      return redirect()->route('dashboard')->with('status', 'Your profile is complite!');
+      return redirect()->route('dashboard')->with('toast_success', 'Your profile is complite!');
 
     }
 }

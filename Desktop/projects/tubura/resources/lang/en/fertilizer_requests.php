@@ -5,7 +5,6 @@ return [
     'plural' => 'Fertilizer Requests',
 //Fields
     'id' => 'Id',
-    'season_id' => 'Season Id',
     'farmer_id' => 'Farmer Id',
     'fertilizer_id' => 'Fertilizer Id',
     'requested_amount' => 'Requested Amount',
@@ -14,8 +13,9 @@ return [
     'received' => 'Received',
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',
+    'fertilizer_application_id' => 'Fertilizer Application Id',
 //Relations
-    'season' => 'Season',
+    'fertilizer_requests' => 'Fertilizer Requests',
     'farmer' => 'Farmer',
     'fertilizer' => 'Fertilizer',
 //Custom

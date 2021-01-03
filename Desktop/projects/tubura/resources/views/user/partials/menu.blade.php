@@ -15,7 +15,7 @@
 
 
                 <li>
-                    <a href="#" class="dropdown-toggle no-arrow">
+                    <a href="{{route('dashboard')}}" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
                     </a>
                 </li>
@@ -28,6 +28,31 @@
                     <ul class="submenu">
                     <li><a href="{{route('farmers.index')}}">All Farmers</a></li>
                         <li><a href="{{route('farmers.create')}}">New farmer </a></li>
+                    
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon dw dw-right-arrow1"></span><span class="mtext">Seed Requests</span>
+                 
+                      
+                    </a>
+                    <ul class="submenu">
+                    <li><a href="{{route('seed-requests.index')}}">All Seed requests</a></li>
+                        <li><a href="{{route('seed-requests.create')}}">New seed request </a></li>
+                    
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon dw dw-right-arrow1"></span><span class="mtext">Fertilizer Requests</span>
+                 
+                      
+                    </a>
+                    <ul class="submenu">
+                    <li><a href="{{route('fertilizer-requests.index')}}">All Fertilizer requests</a></li>
+                        <li><a href="{{route('fertilizer-requests.create')}}">New Fertilizer request </a></li>
                     
                     </ul>
                 </li>

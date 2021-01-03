@@ -27,13 +27,12 @@ if(Auth::user()->is_admin){
 }
 
 else 
-
 {
 
     return view('user.home');
 }
     
-
+//return view('dashboard');
     
 })->name('dashboard');
 
@@ -53,7 +52,10 @@ Route::resource('seasons', App\Http\Controllers\admin\SeasonController::class);
 Route::resource('seeds', App\Http\Controllers\admin\SeedController::class);
 Route::resource('fertilizers', App\Http\Controllers\admin\FertilizerController::class);
 Route::resource('stocks', App\Http\Controllers\admin\StockController::class);
+Route::resource('seed-stocks', App\Http\Controllers\SeedStockController::class);
+Route::resource('fertilizer-stocks', App\Http\Controllers\FertilizerStockController::class);
 //Route::resource('seeds', App\Http\Controllers\SeedController::class);
+//Route::get('/user/complite_profile', [App\Http\Controllers\user\CompliteProfileController::class, 'index'] )->name('see.index');
 
 
 //end amnin routes
@@ -65,8 +67,9 @@ Route::resource('stocks', App\Http\Controllers\admin\StockController::class);
 Route::get('/user/complite_profile', [App\Http\Controllers\user\CompliteProfileController::class, 'index'] )->name('complite_profile.index');
 Route::post('/user/complite', [App\Http\Controllers\user\CompliteProfileController::class, 'complite'] )->name('complite_profile.complite');
 Route::resource('farmers', App\Http\Controllers\user\FarmerController::class);
-Route::resource('seed-requests', App\Http\Controllers\SeedRequestController::class);
-Route::resource('fertilizer-requests', App\Http\Controllers\FertilizerRequestController::class);
+//Route::resource('seed-requests', App\Http\Controllers\user\SeedRequestController::class);
+//Route::resource('fertilizer-requests', App\Http\Controllers\user\FertilizerRequestController::class);
+
 
 
 
@@ -74,6 +77,12 @@ Route::resource('fertilizer-requests', App\Http\Controllers\FertilizerRequestCon
 
 
 
+
+
+Route::resource('seed-requests', App\Http\Controllers\SeedRequestController::class);
+Route::resource('fertilizer-requests', App\Http\Controllers\FertilizerRequestController::class);
+Route::resource('fertilizer-applications', App\Http\Controllers\FertilizerApplicationController::class);
+Route::resource('seed-applications', App\Http\Controllers\SeedApplicationController::class);
 
 
 

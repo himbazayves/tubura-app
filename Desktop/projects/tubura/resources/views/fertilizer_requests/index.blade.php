@@ -44,7 +44,6 @@
                         
                         
                         
-                        
                                     <th>Requested Amount</th>
             
                                     <th>Given Amount</th>
@@ -53,6 +52,7 @@
             
                                     <th>Received</th>
             
+                        
                         
                         
                      
@@ -69,11 +69,11 @@
 
     @forelse($fertilizer_requests as $fertilizer_request)
     <tr>
-                                            <td>{{$fertilizer_request->requested_amount}}</td>
+                                    <td>{{$fertilizer_request->requested_amount}}</td>
                 <td>{{$fertilizer_request->given_amount}}</td>
                 <td>{{$fertilizer_request->approved}}</td>
                 <td>{{$fertilizer_request->received}}</td>
-                        
+                                
 
 
     

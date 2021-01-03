@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\YearPostRequest;
 use App\Models\Year;
+use Alert;
 
 
 class YearController extends Controller
@@ -31,7 +32,7 @@ class YearController extends Controller
     {
         $data = $request->validated();
         $year = Year::create($data);
-        return redirect()->route('years.index')->with('status', 'Year created!');
+        return redirect()->route('years.index')->with('toast_success', 'Year created!');
     }
 
     public function edit(Request $request, Year $year)
@@ -44,12 +45,12 @@ class YearController extends Controller
         $data = $request->validated();
         $year->fill($data);
         $year->save();
-        return redirect()->route('years.index')->with('status', 'Year updated!');
+        return redirect()->route('years.index')->with('toast_success', 'Year updated!');
     }
 
     public function destroy(Request $request, Year $year)
     {
         $year->delete();
-        return redirect()->route('years.index')->with('status', 'Year destroyed!');
+        return redirect()->route('years.index')->with('toast_success', 'Year destroyed!');
     }
 }

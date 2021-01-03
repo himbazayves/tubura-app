@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\FertilizerPostRequest;
 use App\Models\Fertilizer;
+use Alert;
 
 
 class FertilizerController extends Controller
@@ -30,7 +31,7 @@ class FertilizerController extends Controller
     {
         $data = $request->validated();
         $fertilizer = Fertilizer::create($data);
-        return redirect()->route('fertilizers.index')->with('status', 'Fertilizer created!');
+        return redirect()->route('fertilizers.index')->with('toast_success', 'Fertilizer created!');
     }
 
     public function edit(Request $request, Fertilizer $fertilizer)
@@ -43,12 +44,12 @@ class FertilizerController extends Controller
         $data = $request->validated();
         $fertilizer->fill($data);
         $fertilizer->save();
-        return redirect()->route('fertilizers.index')->with('status', 'Fertilizer updated!');
+        return redirect()->route('fertilizers.index')->with('toast_success', 'Fertilizer updated!');
     }
 
     public function destroy(Request $request, Fertilizer $fertilizer)
     {
         $fertilizer->delete();
-        return redirect()->route('fertilizers.index')->with('status', 'Fertilizer destroyed!');
+        return redirect()->route('fertilizers.index')->with('toast_success', 'Fertilizer destroyed!');
     }
 }

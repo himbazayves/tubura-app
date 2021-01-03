@@ -44,7 +44,6 @@
                         
                         
                         
-                        
                                     <th>Requested Amount</th>
             
                                     <th>Given Amount</th>
@@ -53,6 +52,7 @@
             
                                     <th>Received</th>
             
+                        
                         
                         
                      
@@ -69,11 +69,11 @@
 
     @forelse($seed_requests as $seed_request)
     <tr>
-                                            <td>{{$seed_request->requested_amount}}</td>
+                                    <td>{{$seed_request->requested_amount}}</td>
                 <td>{{$seed_request->given_amount}}</td>
                 <td>{{$seed_request->approved}}</td>
                 <td>{{$seed_request->received}}</td>
-                        
+                                
 
 
     

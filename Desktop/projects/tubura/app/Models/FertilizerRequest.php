@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class FertilizerRequest extends Model
 {
     use HasFactory;
-    protected  $fillable=['farmer_id','season_id','requested_amount','received_amount', 'fertilizer_id',];
+    protected  $fillable=['farmer_id','fertilizer_application_id','requested_amount','received_amount'];
 
-    public function season()
+    public function fertilizer_requests()
       {
-          return $this->belongsTo('App\Models\Season');
+          return $this->belongsTo('App\Models\FertilizerRequest');
       }
 
 

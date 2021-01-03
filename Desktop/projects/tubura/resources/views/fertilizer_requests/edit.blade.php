@@ -46,15 +46,15 @@
         
 
     <div class="form-group row">
-        <label class="col-sm-12 col-md-2 col-form-label" for="season_id">Season</label>
+        <label class="col-sm-12 col-md-2 col-form-label" for="fertilizer_requests_id">Fertilizer Requests</label>
         <div class="col-sm-12 col-md-10">
-        <select class="js-example-basic-single form-control" style="width:100%" name="season_id" id="season_id">
-            @foreach((\App\Models\Season::all() ?? [] ) as $season)
-            <option value="{{$season->id}}"
-                @if($fertilizer_request->season_id == old('season_id', $season->id))
+        <select class="js-example-basic-single form-control" style="width:100%" name="fertilizer_requests_id" id="fertilizer_requests_id">
+            @foreach((\App\Models\FertilizerRequest::all() ?? [] ) as $fertilizer_requests)
+            <option value="{{$fertilizer_requests->id}}"
+                @if($fertilizer_request->fertilizer_requests_id == old('fertilizer_requests_id', $fertilizer_requests->id))
                 selected="selected"
                 @endif
-            >{{$season->}}</option>
+            >{{$fertilizer_requests->requested_amount}}</option>
 
             @endforeach
         </select>
@@ -96,7 +96,7 @@
 </div>
         
 
-                                            <div class="form-group row">
+                                    <div class="form-group row">
         <label class="col-sm-12 col-md-2 col-form-label" for="requested_amount">Requested Amount</label>
         <div class="col-sm-12 col-md-10">
                 <input class="form-control String"  type="text"  name="requested_amount" id="requested_amount" value="{{old('requested_amount',$fertilizer_request->requested_amount)}}"
@@ -111,8 +111,7 @@
         <label class="col-sm-12 col-md-2 col-form-label" for="given_amount">Given Amount</label>
         <div class="col-sm-12 col-md-10">
                 <input class="form-control String"  type="text"  name="given_amount" id="given_amount" value="{{old('given_amount',$fertilizer_request->given_amount)}}"
-                        required="required"
-                >
+                        >
             @if($errors->has('given_amount'))
         <span class="invalid-feedback" role="alert"><strong>{{$errors->first('given_amount')}}</strong></span>
         @endif
@@ -138,7 +137,7 @@
         @endif
     </div>
 </div>
-                        
+                                
   
 
 

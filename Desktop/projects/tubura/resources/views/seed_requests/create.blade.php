@@ -25,13 +25,13 @@
 <form action="{{route('seed-requests.store')}}" method="POST" novalidate>
    @csrf
   
-                          <div class="form-group row">
-                 <label class="col-sm-12 col-md-2 col-form-label" for="season_id">Season</label>
+                <div class="form-group row">
+                 <label class="col-sm-12 col-md-2 col-form-label" for="seed_application_id">Season</label>
                  <div class="col-sm-12 col-md-10">
-                 <select class="js-example-basic-single form-control" style="width:100%" name="season_id" id="season_id">
-                     @foreach((\App\Models\Season::all() ?? [] ) as $season)
-                     <option value="{{$season->id}}">
-                         {{$season->year->name}}-{{$season->season_type->name}}</option>
+                 <select class="js-example-basic-single form-control" style="width:100%" name="seed_application_id" id="seed_application_id">
+                     @foreach((\App\Models\SeedApplication::all() ?? [] ) as $seed_application)
+                     <option value="{{$seed_application->id}}">
+                         {{$seed_application->season->year->name}}-{{$seed_application->season->season_type->name}}</option>
                      @endforeach
                  </select>
              </div>
@@ -42,7 +42,7 @@
                  <select class="js-example-basic-single form-control" style="width:100%" name="farmer_id" id="farmer_id">
                      @foreach((\App\Models\Farmer::all() ?? [] ) as $farmer)
                      <option value="{{$farmer->id}}">
-                         {{$farmer->name}} {{$farmer->surname}}({{$farmer->NID}}) </option>
+                         {{$farmer->name}}</option>
                      @endforeach
                  </select>
              </div>
@@ -61,7 +61,7 @@
                           
 
 
-                                                                                                                                               <div class="form-group row">
+                                                                                                                     <div class="form-group row">
 
                  <label class="col-sm-12 col-md-2 col-form-label" for="requested_amount">Requested Amount</label>
                  <div class="col-sm-12 col-md-10">
@@ -73,9 +73,9 @@
                  @endif
              </div>
             </div>
-                  
                                                    
-                                                                              
+                                                  
+                                                                                                        
 
 
       

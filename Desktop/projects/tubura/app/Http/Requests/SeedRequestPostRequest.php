@@ -27,17 +27,16 @@ class SeedRequestPostRequest extends FormRequest
             'farmer_id' => [
                 'required',
             ],
-            'season_id' => [
-                'required',
-            ],
             'seed_id' => [
                 'required',
             ],
             'requested_amount' => [
                 'required',
             ],
-           
-           
+         
+            'seed_application_id' => [
+                'required',
+            ],
         ];
     }
 }

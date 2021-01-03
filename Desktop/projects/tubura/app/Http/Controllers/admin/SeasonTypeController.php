@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\SeasonTypePostRequest;
 use App\Models\SeasonType;
+use Alert;
 
 
 class SeasonTypeController extends Controller
@@ -31,7 +32,7 @@ class SeasonTypeController extends Controller
     {
         $data = $request->validated();
         $season_type = SeasonType::create($data);
-        return redirect()->route('season-types.index')->with('status', 'SeasonType created!');
+        return redirect()->route('season-types.index')->with('toast_success', 'SeasonType created!');
     }
 
     public function edit(Request $request, SeasonType $season_type)
@@ -44,12 +45,12 @@ class SeasonTypeController extends Controller
         $data = $request->validated();
         $season_type->fill($data);
         $season_type->save();
-        return redirect()->route('season-types.index')->with('status', 'SeasonType updated!');
+        return redirect()->route('season-types.index')->with('toast_success', 'SeasonType updated!');
     }
 
     public function destroy(Request $request, SeasonType $season_type)
     {
         $season_type->delete();
-        return redirect()->route('season-types.index')->with('status', 'SeasonType destroyed!');
+        return redirect()->route('season-types.index')->with('toast_success', 'SeasonType destroyed!');
     }
 }

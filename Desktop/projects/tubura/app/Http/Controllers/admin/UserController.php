@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserPostRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Alert;
 
 
 class UserController extends Controller
@@ -45,7 +46,7 @@ class UserController extends Controller
          $user->save();
 
         
-        return redirect()->route('users.index')->with('status', 'User created!');
+        return redirect()->route('users.index')->with('toast_success', 'User created!');
     }
 
     public function edit(Request $request, User $user)
@@ -58,12 +59,12 @@ class UserController extends Controller
         $data = $request->validated();
         $user->fill($data);
         $user->save();
-        return redirect()->route('users.index')->with('status', 'User updated!');
+        return redirect()->route('users.index')->with('toast_success', 'User updated!');
     }
 
     public function destroy(Request $request, User $user)
     {
         $user->delete();
-        return redirect()->route('users.index')->with('status', 'User destroyed!');
+        return redirect()->route('users.index')->with('toast_success', 'User destroyed!');
     }
 }

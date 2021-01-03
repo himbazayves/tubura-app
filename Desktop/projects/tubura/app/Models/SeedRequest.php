@@ -9,11 +9,11 @@ class SeedRequest extends Model
 {
     use HasFactory;
 
-    protected  $fillable=['farmer_id','season_id','requested_amount','received_amount','seed_id'];
+    protected  $fillable=['farmer_id','seed_application_id','requested_amount','received_amount','seed_id'];
 
-    public function season()
+    public function seed_application()
       {
-          return $this->belongsTo('App\Models\Season');
+          return $this->belongsTo('App\Models\SeedApplication');
       }
 
 
