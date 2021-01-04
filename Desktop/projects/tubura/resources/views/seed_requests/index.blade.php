@@ -2,7 +2,7 @@
 
 @section('menu')
 
-@include('admin.partials.menu')
+@include('user.partials.menu')
 
 
 
@@ -43,14 +43,17 @@
         <tr>
                         
                         
-                        
-                                    <th>Requested Amount</th>
+                                  <th>Farmer</th>
+                                  <th>Season</th>
+                                  <th>Seed</th>
+                                   <th>Requested Amount</th>
             
-                                    <th>Given Amount</th>
+                                    
             
-                                    <th>Approved</th>
+                                   
             
                                     <th>Received</th>
+                                    
             
                         
                         
@@ -69,10 +72,70 @@
 
     @forelse($seed_requests as $seed_request)
     <tr>
-                                    <td>{{$seed_request->requested_amount}}</td>
-                <td>{{$seed_request->given_amount}}</td>
-                <td>{{$seed_request->approved}}</td>
-                <td>{{$seed_request->received}}</td>
+                
+        <td>{{$seed_request->farmer->name}} {{$seed_request->farmer->surname}}</td>
+        <td>
+            {{$seed_request->seed_application->season->year->name}}-{{$seed_request->seed_application->season->season_type->name}}
+        </td>
+        <td>{{$seed_request->seed->name}}</td>
+        <td>{{$seed_request->requested_amount}} Kg.</td>
+       
+        
+
+              <!--  <td>
+                    @if($seed_request->given_amount)
+
+                    
+                      {{$seed_request->given_amount}}
+
+                      @else
+                      NA
+                    @endif
+                
+                </td>-->
+                
+                
+               <!--  <td>
+
+
+                   <form action="{{route('seed_requests.approve',$seed_request->id)}}" method="post">
+                        @csrf
+                    @if($seed_request->approved)
+                    <label class="badge badge-success"> Yes</label>
+                    
+                    <button type="submit" class="btn btn-danger">Deny</button>
+
+                      @else 
+                      <label class="badge badge-warning"> No</label>
+                     
+                     
+
+                      <button type="submit" class="btn btn-success">Approve</button>
+
+                    
+                      
+                    @endif
+                </form> 
+                    
+                   
+                </td>-->
+                <td>
+
+                    <form action="{{route('seed_requests.receive',$seed_request->id)}}" method="post">
+                        @csrf
+
+                    @if($seed_request->received)
+                    <label class="badge badge-success"> Yes</label>
+                      @else 
+                      <label class="badge badge-warning"> No</label>
+                      <button type="submit" class="btn btn-success">Mark as received</button>
+                    @endif
+                
+                </td>
+               </form>
+
+
+               
                                 
 
 

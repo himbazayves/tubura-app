@@ -23,53 +23,8 @@
 @endsection
 
 @section('filter')
-<form action="{{route('seed_report.filter')}}" action="post"  >
-    <div class="row">
-      <div class="col">
-        
 
-        <select class="form-control" name="application">
-            <option value="" selected disabled>Season</option>
-            @foreach ($seedApplication as $application)
-                <option value="{{$application->id}}">{{$application->season->year->name}}-{{$application->season->season_type->name}}</option>
-            @endforeach
-
-        </select>
-      </div>
-      <div class="col">
-        <select class="form-control" name="seed">
-            <option value="" selected disabled>Seed</option>
-            <option value="">All seeds</option>
-            @foreach ($seeds as $seed)
-                <option value="{{$seed->id}}">{{$seed->name}}</option>
-            @endforeach
-
-        </select>
-      </div>
-      <div class="col">
-        <div class="col">
-            <select class="form-control" name="cell">
-                <option value="" selected disabled>Cell</option>
-                <option value="all">All cells</option>
-                @foreach ($cells as $cell)
-                    <option value="{{$cell->id}}">{{$cell->name}}</option>
-                @endforeach
-    
-            </select>
-          </div>
-      </div>
-
-
-
-      <div class="col">
-        <div class="col">
-            <button class="btn btn-primary" type="submit">Filter</button>
-          </div>
-      </div>
-
-
-    </div>
-  </form>
+<a href="{{route('seed_report.index')}}" class="btn btn-primary">Back</a>
 @endsection
 
 
@@ -85,7 +40,7 @@
    <?php
      $totalAmount=0;
 
-     foreach($reports as $r){
+     foreach($requests as $r){
          
          $totalAmount=$totalAmount+$r->requested_amount;
      }
@@ -112,7 +67,7 @@
     </thead>
     <tbody>
 
-        @foreach($reports as $key => $report)
+        @foreach($requests as $key => $report)
         <tr>
         
         

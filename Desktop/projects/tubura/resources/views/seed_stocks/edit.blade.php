@@ -2,7 +2,7 @@
 
 @section('menu')
 
-@include('admin.partials.menu')
+@include('user.partials.menu')
 
 
 
@@ -54,7 +54,24 @@
                 @if($seed_stock->season_id == old('season_id', $season->id))
                 selected="selected"
                 @endif
-            >{{$season->}}</option>
+            >{{$season->year->name}}-{{$season->season_type->name}}</option>
+
+            @endforeach
+        </select>
+    </div>
+</div>
+            
+
+    <div class="form-group row">
+        <label class="col-sm-12 col-md-2 col-form-label" for="cell_id">Cell</label>
+        <div class="col-sm-12 col-md-10">
+        <select class="js-example-basic-single form-control" style="width:100%" name="cell_id" id="cell_id">
+            @foreach((\App\Models\Cell::all() ?? [] ) as $cell)
+            <option value="{{$cell->id}}"
+                @if($seed_stock->cell_id == old('cell_id', $cell->id))
+                selected="selected"
+                @endif
+            >{{$cell->name}}</option>
 
             @endforeach
         </select>
@@ -101,7 +118,7 @@
         @endif
     </div>
 </div>
-                                
+                                        
   
 
 

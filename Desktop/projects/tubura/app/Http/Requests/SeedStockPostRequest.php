@@ -30,10 +30,11 @@ class SeedStockPostRequest extends FormRequest
             'initial_amount' => [
                 'required',
             ],
-            'current_amount' => [
+           
+            'seed_id' => [
                 'required',
             ],
-            'seed_id' => [
+            'cell_id' => [
                 'required',
             ],
         ];

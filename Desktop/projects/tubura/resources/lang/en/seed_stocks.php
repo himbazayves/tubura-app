@@ -11,8 +11,10 @@ return [
     'seed_id' => 'Seed Id',
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',
+    'cell_id' => 'Cell Id',
 //Relations
     'season' => 'Season',
+    'cell' => 'Cell',
     'seed' => 'Seed',
 //Custom
 ];

@@ -20,37 +20,7 @@
                     </a>
                 </li>
 
-                <li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon dw dw-list3"></span><span class="mtext">Stock</span>
-                    </a>
-                    <ul class="submenu">
-                        
-
-                        <li class="dropdown">
-                            <a href="javascript:;" class="dropdown-toggle">
-                                <span class="micon fa fa-plug"></span><span class="mtext">Seed Stock</span>
-                            </a>
-                            <ul class="submenu child">
-                                <li><a href="{{route('seed-stocks.index')}}">All seed stocks</a></li>
-                                <li><a href="{{route('seed-stocks.create')}}">New seed stock</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="dropdown">
-                            <a href="javascript:;" class="dropdown-toggle">
-                                <span class="micon fa fa-plug"></span><span class="mtext">Fertilizer Stock</span>
-                            </a>
-                            <ul class="submenu child">
-                                <li><a href="{{route('fertilizer-stocks.index')}}">All fertilizer stocks</a></li>
-                                <li><a href="{{route('fertilizer-stocks.create')}}">New fertilizer stock</a></li>
-                            </ul>
-                        </li>
-                        
-                    </ul>
-                </li>
-
-
+                
 
                 
                <!-- <li class="dropdown">
@@ -65,6 +35,21 @@
                     
                     </ul>
                 </li>-->
+
+
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon dw dw-right-arrow1"></span><span class="mtext">Requests</span>
+                 
+                      
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="{{route('seed_report.index')}}">Seed Requests</a></li>
+                            <li><a href="#">Fertilizer requests</a></li>
+                        
+                        </ul>
+                    
+                </li>
 
 
                 <li class="dropdown">

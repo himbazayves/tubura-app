@@ -50,6 +50,7 @@
                         
                         
                         
+                        
                      
           
             
@@ -66,7 +67,7 @@
     <tr>
                             <td>{{$fertilizer_stock->initial_amount}}</td>
                 <td>{{$fertilizer_stock->current_amount}}</td>
-                                
+                                        
 
 
     

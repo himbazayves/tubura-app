@@ -54,7 +54,24 @@
                 @if($fertilizer_stock->season_id == old('season_id', $season->id))
                 selected="selected"
                 @endif
-            >{{$season->year->name}}-{{$season->season_type->name}}</option>
+            >{{$season->}}</option>
+
+            @endforeach
+        </select>
+    </div>
+</div>
+            
+
+    <div class="form-group row">
+        <label class="col-sm-12 col-md-2 col-form-label" for="cell_id">Cell</label>
+        <div class="col-sm-12 col-md-10">
+        <select class="js-example-basic-single form-control" style="width:100%" name="cell_id" id="cell_id">
+            @foreach((\App\Models\Cell::all() ?? [] ) as $cell)
+            <option value="{{$cell->id}}"
+                @if($fertilizer_stock->cell_id == old('cell_id', $cell->id))
+                selected="selected"
+                @endif
+            >{{$cell->name}}</option>
 
             @endforeach
         </select>
@@ -90,8 +107,18 @@
         @endif
     </div>
 </div>
-               
-                                
+                <div class="form-group row">
+        <label class="col-sm-12 col-md-2 col-form-label" for="current_amount">Current Amount</label>
+        <div class="col-sm-12 col-md-10">
+                <input class="form-control Integer"  type="number"  name="current_amount" id="current_amount" value="{{old('current_amount',$fertilizer_stock->current_amount)}}"
+                        required="required"
+                >
+            @if($errors->has('current_amount'))
+        <span class="invalid-feedback" role="alert"><strong>{{$errors->first('current_amount')}}</strong></span>
+        @endif
+    </div>
+</div>
+                                        
   
 
 

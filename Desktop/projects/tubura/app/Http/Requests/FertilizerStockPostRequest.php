@@ -30,8 +30,13 @@ class FertilizerStockPostRequest extends FormRequest
             'initial_amount' => [
                 'required',
             ],
-           
+            'current_amount' => [
+                'required',
+            ],
             'fertilizer_id' => [
+                'required',
+            ],
+            'cell_id' => [
                 'required',
             ],
         ];

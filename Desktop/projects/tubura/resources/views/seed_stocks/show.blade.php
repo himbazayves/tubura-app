@@ -4,7 +4,7 @@
 
 @section('menu')
 
-@include('admin.partials.menu')
+@include('user.partials.menu')
 
 
 
@@ -39,13 +39,13 @@
             <label class="col-form-label" for="value">Current Amount</label>
             <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$seedStock->current_amount}}">
         </div>
-                                                                    </div>
+                                                                                    </div>
 
     </div>
 
     <div class="card mb-4">
 
-                                        
+                                                        
     </div>
 
 

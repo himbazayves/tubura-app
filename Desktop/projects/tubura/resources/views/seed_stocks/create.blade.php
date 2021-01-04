@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('menu')
-@include('admin.partials.menu')
+@include('user.partials.menu')
 @endsection
 @section('path')
 <div class="title">
@@ -31,7 +31,18 @@
                  <select class="js-example-basic-single form-control" style="width:100%" name="season_id" id="season_id">
                      @foreach((\App\Models\Season::all() ?? [] ) as $season)
                      <option value="{{$season->id}}">
-                         {{$season->year->name}}-{{$season->season_type->name}}</option>
+                         {{$season->year->name}}- {{$season->season_type->name}}</option>
+                     @endforeach
+                 </select>
+             </div>
+            </div>
+                                                    <div class="form-group row">
+                 <label class="col-sm-12 col-md-2 col-form-label" for="cell_id">Cell</label>
+                 <div class="col-sm-12 col-md-10">
+                 <select class="js-example-basic-single form-control" style="width:100%" name="cell_id" id="cell_id">
+                     @foreach((\App\Models\Cell::all() ?? [] ) as $cell)
+                     <option value="{{$cell->id}}">
+                         {{$cell->name}}</option>
                      @endforeach
                  </select>
              </div>
@@ -61,8 +72,8 @@
                  @endif
              </div>
             </div>
-                         
-                                                                                                        
+                                                   
+                                                                                                                                  
 
 
       

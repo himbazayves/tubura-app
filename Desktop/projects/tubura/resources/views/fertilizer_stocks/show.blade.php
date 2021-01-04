@@ -21,8 +21,6 @@
     </ol>
 </nav>
 
-@endsection
-
 @section('content')
 <div class="container">
 
@@ -41,13 +39,13 @@
             <label class="col-form-label" for="value">Current Amount</label>
             <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{$fertilizerStock->current_amount}}">
         </div>
-                                                                    </div>
+                                                                                    </div>
 
     </div>
 
     <div class="card mb-4">
 
-                                        
+                                                        
     </div>
 
 

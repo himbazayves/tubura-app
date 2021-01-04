@@ -3,7 +3,7 @@
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>Lost Document App</title>
+	<title>Tubura</title>
 
 	<!-- Site favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
@@ -317,6 +317,13 @@ textarea.form-control.is-invalid {
 					@yield('path')
 				</div>
 			</div>	
+
+			<div class="pd-20 bg-white border-radius-4 box-shadow mb-30">
+
+				@yield('filter')
+
+
+			</div>
 			
 				<div class="pd-20 bg-white border-radius-4 box-shadow mb-30">
 
@@ -374,12 +381,12 @@ $(document).ready(function() {
 
 
 
-<script>
+<!--<script>
 
 $(".alert").fadeTo(2000, 500).slideUp(500, function(){
     $(".alert").slideUp(1000);
 });
-</script>
+</script>-->
 
 
 

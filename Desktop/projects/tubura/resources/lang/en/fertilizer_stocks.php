@@ -11,8 +11,10 @@ return [
     'fertilizer_id' => 'Fertilizer Id',
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',
+    'cell_id' => 'Cell Id',
 //Relations
     'season' => 'Season',
+    'cell' => 'Cell',
     'fertilizer' => 'Fertilizer',
 //Custom
 ];

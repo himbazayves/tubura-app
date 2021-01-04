@@ -2,7 +2,7 @@
 
 @section('menu')
 
-@include('admin.partials.menu')
+@include('user.partials.menu')
 
 
 
@@ -42,11 +42,13 @@
     <thead>
         <tr>
                         
+                                    <th>Seed</th>
+                                    <th>Season</th>
+                                    <th>Initial Amount(Kg)</th>
+            
+                                    <th>Current Amount (Kg)</th>
+            
                         
-                                    <th>Initial Amount</th>
-            
-                                    <th>Current Amount</th>
-            
                         
                         
                         
@@ -64,9 +66,12 @@
 
     @forelse($seed_stocks as $seed_stock)
     <tr>
-                            <td>{{$seed_stock->initial_amount}}</td>
-                <td>{{$seed_stock->current_amount}}</td>
-                                
+            
+        <td>{{$seed_stock->seed->name}}</td>
+        <td>{{$seed_stock->season->year->name}}-{{$seed_stock->season->season_type->name}}</td>
+        <td>{{$seed_stock->initial_amount}} Kg.</td>
+                <td>{{$seed_stock->current_amount}} Kg.</td>
+                                        
 
 
     
